@@ -1,0 +1,32 @@
+project: vaults_synthetix
+
+# settings for state-based tests.
+hypothesis:
+  max_examples: 40
+  stateful_step_count: 180
+  report_multiple_bugs: False
+  phases:
+    explicit: True
+    reuse: True
+    generate: True
+    target: True
+    shrink: False
+# for command line: --hypothesis-verbosity=verbose (quiet, normal, verbose, debug) -s
+# for command line: --hypothesis-show-statistics -s
+
+compiler:
+  evm_version: istanbul
+  solc:
+    version: 0.8.19
+    optimizer:
+      enabled: true
+      runs: 10
+    remappings: null
+  vyper:
+    version: null
+
+# enable output of development artifacts to load with react
+dev_deployment_artifacts: true
+dependencies:
+    - OpenZeppelin/openzeppelin-contracts@4.8.0
+
